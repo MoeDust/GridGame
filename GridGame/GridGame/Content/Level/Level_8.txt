@@ -1,0 +1,98 @@
+
+A complete system
+
+This is now a complete level with all the power productions
+and properties seen in the levels bevor.
+
+Try to keep track of the system.
+
+BUS
+x-pos	y-pos	ID	P	U	Theta	P_max	P_min	Generation/Consumption
+170	80	1	0	15	0	5	-5	S
+400	110	2	-8	15	0	0	-10	G
+700	190	3	5	15	0	6	0	C
+480	320	4	6	15	0	7	0	C
+550	80	5	0	15	0	0	-2	P
+330	220	6	0	15	0	0	-4	P
+630	360	7	0	15	0	0	-3	W
+830	60	8	-3	15	0	0	-6	H
+610	500	9	0	15	0	0	-3	W
+220	335	10	4	15	0	5	0	C
+520	560	11	0	15	0	0	-2	P
+890	350	12	-2	15	0	2	-2	S
+80	500	13	2	15	0	2	-2	S
+360	430	14	-3	15	0	0	-5	H
+BUS_END
+
+Battery
+Bus_ID	E_max	E_init	C-Rate	P	Manual	
+11	4	0	0.5	0.5	N
+14	5	2	1	1	Y
+7	4	0	1	1	N
+10	5	0	1	1	N
+Battery_END
+
+Line
+StartID	EndID	Max_P	R	X	Line_id
+1	2	1	0	0.2	1
+2	3	5	0	0.2	2
+2	4	9	0	0.2	3
+3	4	3	0	0.2	4
+2	5	2	0	0.2	5
+10	6	4	0	0.2	6
+3	7	3	0	0.2	7
+3	8	6	0	0.2	8
+4	9	3	0	0.2	9
+4	10	7	0	0.2	10
+4	11	2	0	0.2	11
+10	13	4	0	0.2	12
+3	12	4	0	0.2	13
+4	14	4	0	0.2	14
+Line_END
+
+Events
+Nr	BUS_id	Start	End	P_diff	Text
+8	0	1	2	0.5	The water level is lower than expected. So, the hydro power decreases slightly.
+6	4	3	4  	0	A substation had technical problems and the powerline \nbetween bus 2 and 3 had to be taken out of order.
+2	0	5	15	0.5	Some wind is coming up.
+4	0	8	9	3	The fossil power plant had to deliver its auctioned secondary reserve energy.
+3	0	11	14	0.6	A cloud is covering the sky and PV energy decreases by 40%. \nThe sky will be cleared at 14 o'clock as predicted.
+7	4	13	14	0	Finally, they did it! The power line is back on.
+2	0	14	21	1	A storm is coming up. Wind production increases.
+8	0	19	20	-2	Due to the storm the rivers carry more water. \nTherefore, the hydro power plants increased their production.
+5	0	22	23	-2	It is already nighttime. The consumption of the households decreased.
+Events_END
+
+Background
+Number
+4
+Background_END
+
+
+
+Generation/Consumption-Description:
+S: Slack-Bus			Is balancing all the powers and 
+P: Photovoltaic-Generation	only negative Power due to Generation only, automatically increases during daytime to the maximal Power P_min
+W: Wind turbine			only negative Power due to Generation only and wind turbine only starts caused by an event
+H: Hydropower			only negative Power due to Generation only
+G: Generation from fossil fuels	only negative Power due to Generation only
+C: Consumer (households)	only positive Power due to Consumption only
+
+
+Events-Nr.-Description:
+1: Individual Event depending on Bus_id (not possible with PV or wind turbine buses)
+2: More or less wind, wind power increases after "Start" time and decreases until the "End" time. Its maximum is thereby P_min times the factor (between 0 and 1) at P_diff
+3: More or less sunlight, power of PV-system increases or decreases by the factor stated at P_diff (between 0 and 1)
+4: Fossil fuel generator has a problem and power decreases
+5: All Consumer vary of expected consumption (for example too cold weather -> heating)
+6: A line breaks down, write instead of BUS_id the Line_id you want to take out of order
+7: A line comes back into use, write instead of BUS_id the Line_id of the mentioned line 
+8: More or less water is available due to rain or dry period, power increases or decreases at hydro power plants 
+// Events are not allowed to have the same start time.
+
+
+Background Numbers:
+1: Canton of Bern
+2: Canton of Zurich
+3: Canton of Lucerne
+4: Canton of St. Gallen

@@ -1,0 +1,11 @@
+Game Description
+
+In this game, you will be confronted with the daily problems
+a power company has. They have to regulate their fossil and 
+hydro power plants whenever an inconsistency exists in the 
+grid. 
+
+You will face in each level one day and one possible scenario
+wherefore you have to regulate the system such that no 
+powerline exceeds its maximal power capacity.
+

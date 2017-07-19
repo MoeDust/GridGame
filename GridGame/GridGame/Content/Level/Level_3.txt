@@ -1,0 +1,82 @@
+
+Use solar power during day time.
+
+Photovoltaics generate power whenever there is sunlight. 
+These systems can't be regulated as fossil generators.
+So, the power companies also need fossil generators to
+balance the changes in solar power. 
+
+Keep the system balanced by regulating the fossil power 
+plant.
+
+BUS
+x-pos	y-pos	ID	P	U	Theta	P_max	P_min	Generation/Consumption
+80	80	1	0	15	0	5	-5	S
+320	110	2	-2	15	0	0	-5	G
+470	320	3	3	15	0	8	0	C
+550	160	4	0	15	0	0	-2	P
+750	470	5	0	15	0	0	-2	P
+540	530	6	0	15	0	0	-2	P
+380	580	7	0	15	0	0	-2	P
+780	200	8	2	15	0	2	-2	S
+220	400	9	-2	15	0	2	-2	S
+BUS_END
+
+Battery
+Bus_ID	E_max	E_init	C-Rate	P	Manual		
+Battery_END
+
+Line
+StartID	EndID	Max_P	R	X	Line_id
+1	2	2	0	0.2	1
+2	3	8	0	0.2	2
+3	4	2	0	0.2	3
+3	5	2	0	0.2	4
+3	6	2	0	0.2	5
+3	7	2	0	0.2	6
+3	8	4	0	0.2	7
+3	9	4	0	0.2	8
+Line_END
+
+Events
+Nr	BUS_id	Start	End	P_diff	Text
+5	0	3	4	1.5	Consumption starts to increase because the bakeries start their work day.
+5	0	5	6	1.5	Now people get up and need energy. Consumption increases again. 
+5	0	20	21	0.5	Energy consumption increases again due to evening entertainment.
+5	0	22	23	-4.5	Nighttime is beginning and consumption decreases strongly.	
+Events_END
+
+Background
+Number
+1
+Background_END
+
+
+
+
+Generation/Consumption-Description:
+S: Slack-Bus			Is balancing all the powers and 
+P: Photovoltaic-Generation	only negative Power due to Generation only, automatically increases during daytime to the maximal Power P_min
+W: Wind turbine			only negative Power due to Generation only and wind turbine only starts caused by an event
+H: Hydropower			only negative Power due to Generation only
+G: Generation from fossil fuels	only negative Power due to Generation only
+C: Consumer (households)	only positive Power due to Consumption only
+
+
+Events-Nr.-Description:
+1: Individual Event depending on Bus_id (not possible with PV or wind turbine buses)
+2: More or less wind, wind power increases after "Start" time and decreases until the "End" time. Its maximum is thereby P_min times the factor (between 0 and 1) at P_diff
+3: More or less sunlight, power of PV-system increases or decreases by the factor stated at P_diff (between 0 and 1)
+4: Fossil fuel generator has a problem and power decreases
+5: All Consumer vary of expected consumption (for example too cold weather -> heating)
+6: A line breaks down, write instead of BUS_id the Line_id you want to take out of order
+7: A line comes back into use, write instead of BUS_id the Line_id of the mentioned line 
+8: More or less water is available due to rain or dry period, power increases or decreases at hydro power plants 
+// Events are not allowed to have the same start time.
+
+
+Background Numbers:
+1: Canton of Bern
+2: Canton of Zurich
+3: Canton of Lucerne
+4: Canton of St. Gallen

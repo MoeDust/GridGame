@@ -1,0 +1,104 @@
+
+Challenging level
+
+In this level, you can prove that you master all the elements 
+of a power grid. This level has less tolerance than all other 
+levels and is therefore more difficult to complete.
+
+Good luck!
+
+BUS
+x-pos	y-pos	ID	P	U	Theta	P_max	P_min	Generation/Consumption
+70	70	1	0	15	0	5	-5	S
+220	140	2	0	15	0	0	-4	P
+390	40	3	0	15	0	0	-5	W
+370	270	4	13	15	0	20	0	C
+540	230	5	0	15	0	0	-3	P
+550	80	6	3	15	0	5	0	C
+750	230	7	-10	15	0	0	-15	G
+850	80	8	-3	15	0	3	-3	S
+130	500	9	2	15	0	2	-2	S
+380	520	10	-7	15	0	0	-10	H
+500	395	11	7	15	0	10	0	C
+600	470	12	-4	15	0	0	-10	H
+800	390	13	0	15	0	0	-5	W
+520	570	14	0	15	0	0	-4	P
+850	600	15	-1	15	0	7	-7	S
+BUS_END
+
+Battery
+Bus_ID	E_max	E_init	C-Rate	P	Manual
+6	5	3	1	1	N
+12	10	8	3	3	Y
+14	6	0	1	1	Y
+2	5	0	1	1	Y	
+Battery_END
+
+Line
+StartID	EndID	Max_P	R	X	Line_id
+1	2	1	0	0.2	1
+2	4	4.5	0	0.2	2
+3	4	5	0	0.2	3
+4	5	3	0	0.2	4
+4	6	5	0	0.2	5
+4	10	8	0	0.2	6
+4	11	10	0	0.2	7
+5	11	3	0	0.2	8
+6	7	8	0	0.2	9
+7	8	6	0	0.2	10
+7	11	12	0	0.2	11
+9	10	4	0	0.2	12
+10	11	6	0	0.2	13
+10	14	2.5	0	0.2	14
+11	12	12	0	0.2	15
+11	13	5	0	0.2	16
+12	15	8	0	0.2	17
+Line_END
+
+Events
+Nr	BUS_id	Start	End	P_diff	Text
+1	15	1	2	8	The export increased drastically. Try to stabilize it.
+2	0	3.3	9	0.7	Wind is coming up.
+1	15	5	6	-6	The export at bus 15 has stabilized again.
+1	6	9	10	1.9	The city of Langenthal at bus 6 has an increased consumption.
+8	0	13	14	0.5	The hydro power plants produce less energy than expected.
+3	0	15	24	0	Heavy clouds cover the sky and no photovoltaic production is possible anymore.
+6	9	17	18	0	The power line between Langenthal and the fossil power plant broke.
+7	9	19.1	29	0	The power company could fix the power line.
+2	0	20	23	0.4	A light breeze is crossing the lands of the power company. \nTherefore, wind production increases slightly.
+5	0	22	23	-2	The energy consumption did decrease. 
+Events_END
+
+Background
+Number
+1
+Background_END
+
+
+
+Generation/Consumption-Description:
+S: Slack-Bus			Is balancing all the powers and 
+P: Photovoltaic-Generation	only negative Power due to Generation only, automatically increases during daytime to the maximal Power P_min
+W: Wind turbine			only negative Power due to Generation only and wind turbine only starts caused by an event
+H: Hydropower			only negative Power due to Generation only
+G: Generation from fossil fuels	only negative Power due to Generation only
+C: Consumer (households)	only positive Power due to Consumption only
+
+
+Events-Nr.-Description:
+1: Individual Event depending on Bus_id (not possible with PV or wind turbine buses)
+2: More or less wind, wind power increases after "Start" time and decreases until the "End" time. Its maximum is thereby P_min times the factor (between 0 and 1) at P_diff
+3: More or less sunlight, power of PV-system increases or decreases by the factor stated at P_diff (between 0 and 1)
+4: Fossil fuel generator has a problem and power decreases
+5: All Consumer vary of expected consumption (for example too cold weather -> heating)
+6: A line breaks down, write instead of BUS_id the Line_id you want to take out of order
+7: A line comes back into use, write instead of BUS_id the Line_id of the mentioned line 
+8: More or less water is available due to rain or dry period, power increases or decreases at hydro power plants 
+// Events are not allowed to have the same start time.
+
+
+Background Numbers:
+1: Canton of Bern
+2: Canton of Zurich
+3: Canton of Lucerne
+4: Canton of St. Gallen

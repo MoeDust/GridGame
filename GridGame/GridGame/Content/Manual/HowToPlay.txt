@@ -1,0 +1,19 @@
+This game shows in different scenarios how the power grid operates. 
+To control the game, click the different buses and use the arrow keys
+to change their power. Negative power indicates that the bus is a generator.
+
+Arrow key up         Increase the power of the active bus
+Arrow key down    Decrease the power of the active bus
+P                             Pause the simulation
+Esc                          Menu
+T                             Toggles the text on the lines
+Space                      Return to game after events
+
+Winning             You win the level if you survive the 24 gamehours.
+Losing                You lose when the system is out of balance for more than 10 seconds.
+                          A countdown will be shown whenever the system is out of balance.
+
+The values in the system are given in per unit (p.u.). This means that all the powers 
+are in proportion to each other. So, if one power is 1 p.u. in the game and 10 MW in 
+real life and another power is 2 p.u. in the game, this second power would be 20 MW 
+in real life.

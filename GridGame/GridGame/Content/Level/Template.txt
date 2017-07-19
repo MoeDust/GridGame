@@ -1,0 +1,50 @@
+// Put here the description of the level
+
+BUS
+x-pos	y-pos	ID	P	U	Theta	P_max	P_min	Generation/Consumption
+BUS_END
+
+Battery
+Bus_ID	E_max	E_init	C-Rate	P	Manual	
+Battery_END
+
+Line
+StartID	EndID	Max_P	R	X	Line_id
+Line_END
+
+Events
+Nr	BUS_id	Start	End	P_diff	Text	
+Events_END
+
+Background
+Number
+Background_END
+
+
+
+Generation/Consumption-Description:
+S: Slack-Bus			Is balancing all the powers and 
+P: Photovoltaic-Generation	only negative Power due to Generation only, automatically increases during daytime to the maximal Power P_min
+W: Wind turbine			only negative Power due to Generation only and wind turbine only starts caused by an event
+H: Hydropower			only negative Power due to Generation only
+G: Generation from fossil fuels	only negative Power due to Generation only
+C: Consumer (households)	only positive Power due to Consumption only
+
+
+Events-Nr.-Description:
+1: Individual Event depending on Bus_id (not possible with PV or wind turbine buses)
+2: More or less wind, wind power increases after "Start" time and decreases until the "End" time. Its maximum is thereby P_min times the factor (between 0 and 1) at P_diff
+3: More or less sunlight, power of PV-system increases or decreases by the factor stated at P_diff (between 0 and 1)
+4: Fossil fuel generator has a problem and power decreases
+5: All Consumer vary of expected consumption (for example too cold weather -> heating)
+6: A line breaks down, write instead of BUS_id the Line_id you want to take out of order
+7: A line comes back into use, write instead of BUS_id the Line_id of the mentioned line 
+8: More or less water is available due to rain or dry period, power increases or decreases at hydro power plants 
+// Events are not allowed to have the same start time.
+
+
+Background Numbers:
+1: Canton of Bern
+2: Canton of Zurich
+3: Canton of Lucerne
+4: Canton of St. Gallen

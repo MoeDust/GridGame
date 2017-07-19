@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GridGame.Battery" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQABAEAAAABAwQASijAAAAAAQCDAAACgAAAAgREBAA=</HashCode>
+      <FileName>Battery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Bus" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgQCAAIAAAACAgAACAhgBAgAIACJgAAAgUIEACBGAgA=</HashCode>
+      <FileName>Bus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Camera" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Events" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAiAAAAgAAgAAAAEAAAAAAASAAIAEAACABAAAA=</HashCode>
+      <FileName>Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Line" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAECACAAggAoAAAgBQAAIBGAAAAAgAhBAAAIQwI=</HashCode>
+      <FileName>Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.PowerModel" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YZQmEgQAEACghgAEgAQmRABgCAJAGBgEAIAIAABokwE=</HashCode>
+      <FileName>PowerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Program" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.Sprite" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABAAAAAAgAAAIAAIAACAAAAAgAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Sprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.TheGridGame" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GridGame.TheGridGame.GameState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TheGridGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="GridGame.TheGridGame.HowToPlayState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TheGridGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABwBEGDRR4ACAwKAAAgiABQAiQGAFowICEAglEggcSQ=</HashCode>
+      <FileName>TheGridGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.UIbar" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQ=</HashCode>
+      <FileName>UIbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.UIButton" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAIAAAACAAAgAIAAAACAAAAAA=</HashCode>
+      <FileName>UIButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridGame.UiManager" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwCAAAAAAAAAAEAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>UiManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
